@@ -14,7 +14,7 @@
     <body>
  <h1>Bienvenido a la Página Principal</h1>
     
-    <button onclick="irAPagina()">Ir a Otra Página</button>
+    <button onclick="irAPagina()">Ir a Comprar Productos</button>
     
     <script>
         function irAPagina() {

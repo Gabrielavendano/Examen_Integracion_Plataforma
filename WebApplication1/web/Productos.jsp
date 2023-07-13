@@ -8,45 +8,195 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Lista de Productos</title>
-    <style>
-        .carro {
-            border: 1px solid black;
-            padding: 10px;
-            margin-top: 20px;
-        }
-    </style>
-    <script>
-        var carro = []; // Arreglo para almacenar los productos agregados al carro
-        var total = 0; // Variable para almacenar el total de la compra
-
-        function agregarAlCarro(producto, precio) {
-            carro.push(producto); // Agregar el producto al arreglo del carro
-            total += precio; // Sumar el precio del producto al total de la compra
-            localStorage.setItem('carro', JSON.stringify(carro));
-            localStorage.setItem('total', total);
-        }
-    </script>
+  <title>Listado de Productos</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+    }
+    
+    .button {
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    
+    .carrito {
+      margin-top: 20px;
+    }
+    
+    .carrito table {
+      margin-bottom: 10px;
+    }
+    
+    .total {
+      text-align: right;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <h1>Lista de Productos</h1>
-
-    <h2>Instrumentos de Cuerdas</h2>
-    <ul>
-        <li>Guitarras Cuerpo Solido - Precio: $500 <button onclick="agregarAlCarro('Guitarras Cuerpo Solido', 500)">Agregar al Carro</button></li>
-        <li>Guitarras Acústicas - Precio: $400 <button onclick="agregarAlCarro('Guitarras Acústicas', 400)">Agregar al Carro</button></li>
-        <li>Guitarras Eléctricas - Precio: $600 <button onclick="agregarAlCarro('Guitarras Eléctricas', 600)">Agregar al Carro</button></li>
-        <li>Bajos Cuatro Cuerdas - Precio: $550 <button onclick="agregarAlCarro('Bajos Cuatro Cuerdas', 550)">Agregar al Carro</button></li>
-        <li>Bajos Cinco Cuerdas - Precio: $650 <button onclick="agregarAlCarro('Bajos Cinco Cuerdas', 650)">Agregar al Carro</button></li>
-        <li>Bajos Activos - Precio: $700 <button onclick="agregarAlCarro('Bajos Activos', 700)">Agregar al Carro</button></li>
-        <li>Bajos Pasivos - Precio: $600 <button onclick="agregarAlCarro('Bajos Pasivos', 600)">Agregar al Carro</button></li>
-        <li>Piano de media cola - Precio: $1500 <button onclick="agregarAlCarro('Piano de media cola', 1500)">Agregar al Carro</button></li>
-        <li>Piano de cola entera - Precio: $3000 <button onclick="agregarAlCarro('Piano de cola entera', 3000)">Agregar al Carro</button></li>
-    </ul>
-
-    <h2>Percusión</h2>
-    <ul>
-        <li>Baterías Acústicas - Tama - Precio: $1000 <button onclick="agregarAlCarro('Baterías Acústicas', 1000)">Agregar al Carro</button></li>
-    </ul>
-            <button onclick="mostrarCarro">Mostrar Productos Agregados</button>
+  <h1>Listado de Productos</h1>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre del Producto</th>
+        <th>Precio (CLP)</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Guitarras de cuerpo solido</td>
+        <td>150000</td>
+        <td><button class="button" onclick="agregarAlCarrito('Guitarras de cuerpo solido', 150000)">Agregar al Carrito</button></td>
+      </tr>
+      <tr>
+        <td>Guitarras acústicas</td>
+        <td>200000</td>
+        <td><button class="button" onclick="agregarAlCarrito('Guitarras acústicas', 200000)">Agregar al Carrito</button></td>
+      </tr>
+      <tr>
+        <td>Guitarras eléctricas</td>
+        <td>250000</td>
+        <td><button class="button" onclick="agregarAlCarrito('Guitarras eléctricas', 250000)">Agregar al Carrito</button></td>
+      </tr>
+      <tr>
+        <td>Bajos de cuatro cuerdas</td>
+        <td>180000</td>
+        <td><button class="button" onclick="agregarAlCarrito('Bajos de cuatro cuerdas', 180000)">Agregar al Carrito</button></td>
+      </tr>
+      <tr>
+        <td>Bajos de cinco cuerdas</td>
+        <td>220000</td>
+        <td><button class="button" onclick="agregarAlCarrito('Bajos de cinco cuerdas', 220000)">Agregar al Carrito</button></td>
+      </tr>
+      <tr>
+        <td>Bajos activos</td>
+        <td>190000</td>
+        <td><button class="button" onclick="agregarAlCarrito('Bajos activos', 190000)">Agregar al Carrito</button></td>
+      </tr>
+      <tr>
+        <td>Bajos pasivos</td>
+        <td>200000</td>
+        <td><button class="button" onclick="agregarAlCarrito('Bajos pasivos', 200000)">Agregar al Carrito</button></td>
+      </tr>
+      <tr>
+        <td>Piano de media cola</td>
+        <td>500000</td>
+        <td><button class="button" onclick="agregarAlCarrito('Piano de media cola', 500000)">Agregar al Carrito</button></td>
+      </tr>
+      <tr>
+        <td>Piano de cola entera</td>
+        <td>1000000</td>
+        <td><button class="button" onclick="agregarAlCarrito('Piano de cola entera', 1000000)">Agregar al Carrito</button></td>
+      </tr>
+      <tr>
+        <td>Pianolas</td>
+        <td>800000</td>
+        <td><button class="button" onclick="agregarAlCarrito('Pianolas', 800000)">Agregar al Carrito</button></td>
+      </tr>
+       <tr>
+        <td>Bateria Acustica Tama</td>
+        <td>800000</td>
+        <td><button class="button" onclick="agregarAlCarrito('Pianolas', 800000)">Agregar al Carrito</button></td>
+      </tr>
+       <tr>
+        <td>Bateria Acustica Pearl</td>
+        <td>800000</td>
+        <td><button class="button" onclick="agregarAlCarrito('Pianolas', 800000)">Agregar al Carrito</button></td>
+      </tr>
+       <tr>
+        <td>Bateria Acustica Sonor</td>
+        <td>800000</td>
+        <td><button class="button" onclick="agregarAlCarrito('Pianolas', 800000)">Agregar al Carrito</button></td>
+      </tr>
+       <tr>
+        <td>Bateria Acustica Mapex</td>
+        <td>800000</td>
+        <td><button class="button" onclick="agregarAlCarrito('Pianolas', 800000)">Agregar al Carrito</button></td>
+      </tr>
+       <tr>
+        <td>Bateria Electronicas Roland</td>
+        <td>800000</td>
+        <td><button class="button" onclick="agregarAlCarrito('Pianolas', 800000)">Agregar al Carrito</button></td>
+      </tr>
+       <tr>
+        <td>Bateria Electronicas Alesis</td>
+        <td>800000</td>
+        <td><button class="button" onclick="agregarAlCarrito('Pianolas', 800000)">Agregar al Carrito</button></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="carrito">
+    <h2>Carrito de Compras</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Precio (CLP)</th>
+        </tr>
+      </thead>
+      <tbody id="carritoBody"></tbody>
+    </table>
+    <p class="total" id="total"></p>
+  </div>
+  <button onclick="irAPagar()">Ir a Pagar</button>
+  
+  <script>
+    let carrito = [];
+    
+    function agregarAlCarrito(nombre, precio) {
+      carrito.push({ nombre, precio });
+      actualizarCarrito();
+    }
+    
+    function actualizarCarrito() {
+      const carritoBody = document.getElementById('carritoBody');
+      const totalElement = document.getElementById('total');
+      
+      // Reiniciar el contenido del carrito
+      carritoBody.innerHTML = '';
+      
+      // Actualizar los elementos del carrito
+      let total = 0;
+      carrito.forEach((producto) => {
+        const row = document.createElement('tr');
+        const nombreCell = document.createElement('td');
+        nombreCell.textContent = producto.nombre;
+        row.appendChild(nombreCell);
+        
+        const precioCell = document.createElement('td');
+        precioCell.textContent = producto.precio;
+        row.appendChild(precioCell);
+        
+        carritoBody.appendChild(row);
+        
+        total += producto.precio;
+      });
+      
+      // Actualizar el total
+      totalElement.textContent = 'Total: ' + total + ' CLP';
+    }
+    function irAPagar() {
+            window.location.href = "Pagar.jsp";
+        }
+  </script>
+</body>
+</html>
